@@ -1,0 +1,22 @@
+mysql -uroot -p
+
+CREATE DATABASE Books;
+
+USE Books;
+
+CREATE TABLE Books(BOOK_ID INT AUTO_INCREMENT PRIMARY KEY, BOOK_NAME VARCHAR(100), SECTION VARCHAR(100), AUTHOR VARCHAR(100));
+
+INSERT INTO books (book_name, section, author)  VALUES  ('City of Heavenly Fire', 'Romance', 'Cassandra Claire'), ('The Blood of Olympus', 'Romance', 'Rick Riordan'), ('Cress', 'Romance', 'Marissa Meyer'), ('The One', 'Action', 'Kiera Cress'), ('Ignite Me', 'Fiction', 'Tahere Mafi'), ('Silver Shadow', 'Romance', 'Richelle Mead'), ('The Undead Pool', 'Fiction', 'Kim Harrison'), ('Night Broken', 'Action', 'Patricia Briggs'), ('Into the Still Blue', 'Fiction', 'Veronica Rossi'), ('Magic Breaks', 'Romance', 'Ilona Andrews');
+
+
+SELECT BOOK_NAME FROM Books WHERE SECTION ="Romance";
+
+SELECT BOOK_NAME FROM Books WHERE AUTHOR ="Rick Riordan";
+
+SELECT BOOK_NAME FROM Books WHERE SECTION ="ACTION" AND (OR) SECTION ="Fiction";
+
+SELECT BOOK_NAME, AUTHOR, SECTION FROM Books WHERE BOOK_ID BETWEEN 1 AND 4;
+
+SELECT BOOK_NAME, AUTHOR, SECTION FROM Books WHERE BOOK_ID IN(1,3);
+
+SELECT BOOK_NAME, AUTHOR, SECTION FROM Books WHERE AUTHOR LIKE 'C%';
